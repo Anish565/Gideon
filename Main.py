@@ -27,7 +27,7 @@ def listen():
         speak("I'm Listening")
         print("Listening...")
         r.pause_threshold = 1
-        r.energy_threshold = 100
+        r.energy_threshold = 250
         audio = r.listen(source)
 
     try:
@@ -75,6 +75,7 @@ def wishMe():
 # while True:
 if 1:
     query = listen().lower()
+    # query="send a message on whatsapp to Charan"
 
     if 'wikipedia' in query:
         speak("Searching Wikipedia")
