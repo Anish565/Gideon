@@ -22,10 +22,10 @@ engine.setProperty('rate',150)
 # speak("Hello There")
 # wishMe()
 # while True:
-def CommandActive():
+def CommandActive(event):
     query = listen().lower()
     # query="send a message on whatsapp to Charan"
-
+    print(query)
     if 'wikipedia' in query:
         speak("Searching Wikipedia")
         query = query.replace("wikipedia","")
@@ -34,7 +34,15 @@ def CommandActive():
         speak("So according to wikipedia")
         speak(results)
         speak("Hope that helped")
-
+    elif 'play' in query:
+        if 'music' in query:
+            music_dir = "path"
+            songs = os.listdir(music_dir)
+            print(songs)
+            os.startfile(os.path.join(music_dir,songs[0]))
+        elif 'on youtube' in query:
+            query = query.replace("play ","")
+            playOnYoutube(query)
     elif 'open youtube' in query:
         query = query.replace("open youtube","")
         if query == "":
@@ -42,24 +50,16 @@ def CommandActive():
         else:
             webbrowser.open("https://www.youtube.com/results?search_query="+query)
     elif 'youtube' in query:
-        if "play" in query:
-            query = query.replace("play ","")
-            playOnYoutube(query)
         query = query.replace(" youtube","")
         if query == "":
             webbrowser.open("youtube.com")
         else:
-            query = query[:-3]
             webbrowser.open("https://www.youtube.com/results?search_query="+query)
     elif 'google' in query:
         query = query.replace("google","")
         webbrowser.open("https://www.google.com/search?q="+query)
-    elif 'play music' in query:
-        music_dir = "path"
-        songs = os.listdir(music_dir)
-        print(songs)
-        os.startfile(os.path.join(music_dir,songs[0]))
-    elif 'the time' in query:
+    
+    elif 'time' in query:
         nowTime = datetime.datetime.now().strftime("%H:%M%p")
         speak(f"The time is {nowTime}")
     elif 'open code' in query:
@@ -95,7 +95,7 @@ def CommandActive():
 
 
 
-while True:
-    command = listen()
-    if "gideon" in command:
-        CommandActive()
+# while True:
+#     command = listen()
+#     if "gideon" in command:
+#         CommandActive()

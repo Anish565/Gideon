@@ -8,6 +8,6 @@ def playOnYoutube(phrase):
     kit.playonyt(phrase)
 
 
-state = "play winui 3 tutorial on youtube"
-state.replace("play ","")
-playOnYoutube(state)
+# state = "play winui 3 tutorial on youtube"
+# state.replace("play ","")
+# playOnYoutube(state)

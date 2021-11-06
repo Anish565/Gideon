@@ -25,8 +25,9 @@ def speak(audio):
 def listen():
     r = s.Recognizer()
     with s.Microphone() as source:
-        speak("I'm Listening")
+        # speak("I'm Listening")
         print("Listening...")
+        r.phrase_threshold = 0.15
         r.pause_threshold = 1
         r.energy_threshold = 250
         audio = r.listen(source)
@@ -34,7 +35,7 @@ def listen():
     try:
         # speak("hmm")
         query = r.recognize_google(audio, language='en-in')
-        print(query)
+        # print(query)
     except Exception as e:
         i = random.randint(1,2)
         if i == 1:
