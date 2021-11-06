@@ -92,6 +92,35 @@ def CommandActive(event):
         except:
             speak("I'm sorry, I didn't get you")
 
+    elif 'open word' in query:
+        try:
+            os.startfile('winword')
+        except Exception as e:
+            print(e)
+            speak("There has been an error")
+    elif 'open powerpoint' in query:
+        try:
+            os.startfile('powerpnt')
+        except Exception as e:
+            print(e)
+            speak("There has been an error")
+    elif 'open excel' in query:
+        try:
+            os.startfile('excel')
+        except Exception as e:
+            print(e)
+            speak("There has been an error")
+    elif 'open outlook' in query:
+        try:
+            os.startfile('outlook')
+        except Exception as e:
+            print(e)
+            speak("There has been an error")
+
+    
+            
+
+
 
 
 
