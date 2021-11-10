@@ -7,4 +7,4 @@ def playSong(song):
     webbrowser.open("https://open.spotify.com/search/" + song)
     pg.click(width*0.4, height - height / 10)
 
-playSong("Shape of you")
+# playSong("Shape of you")

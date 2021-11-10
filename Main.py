@@ -22,16 +22,18 @@ engine.setProperty('rate',150)
 # speak("Hello There")
 # wishMe()
 # while True:
-def CommandActive(event):
-    query = listen().lower()
+def CommandActive():
+# def CommandActive(event):
+    # query = listen().lower()
     # query="send a message on whatsapp to Charan"
+    query="can you please open valorant"
     print(query)
     if 'wikipedia' in query:
         speak("Searching Wikipedia")
         query = query.replace("wikipedia","")
         # print(query)
         results = wikipedia.summary(query, sentences=2)
-        speak("So according to wikipedia")
+        speak("According to wikipedia")
         speak(results)
         speak("Hope that helped")
     elif 'play' in query:
@@ -105,35 +107,27 @@ def CommandActive(event):
         except Exception as e:
             print(e)
             speak("There has been an error")
-    elif 'open excel' in query:
-        try:
-            os.startfile('excel')
-        except Exception as e:
-            print(e)
-            speak("There has been an error")
-    elif 'open outlook' in query:
-        try:
-            os.startfile('outlook')
-        except Exception as e:
-            print(e)
-            speak("There has been an error")
-    elif 'open chrome' in query:
-        try:
-            os.startfile('chrome')
-        except Exception as e:
-            print(e)
-            speak("There has been an error")
             
+    elif 'open' in query:
+        try:
+            temp=query.split()
+            os.startfile(temp[temp.index("open")+1])
+        except Exception as e:
+            print(e)
+            speak("I'm sorry, fuck you")
             
 
-    
+    else:
+        speak("I'm not capable of doing that yet")
+        print("I'm not capable of doing that yet")
             
 
 
 
 
 
-while True:
-    command = listen()
-    if "gideon" in command:
-        CommandActive()
+# while True:
+#     # command = listen()
+#     command="gideon"
+#     if "gideon" in command:
+CommandActive()

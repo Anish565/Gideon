@@ -6,7 +6,7 @@ import datetime,random
 import pyttsx3
 import wikipedia
 from PlayYoutubevideos import playOnYoutube
-import whatsapp as kit
+# import whatsapp as kit
 
 engine = pyttsx3.init('sapi5')
 
@@ -25,17 +25,17 @@ def speak(audio):
 def listen():
     r = s.Recognizer()
     with s.Microphone() as source:
-        # speak("I'm Listening")
-        print("Listening...")
-        r.phrase_threshold = 0.15
-        r.pause_threshold = 1
-        r.energy_threshold = 250
+        speak("I'm Listening")
+        # print("Listening...")
+        # r.phrase_threshold = 0.15
+        r.pause_threshold = 0.75
+        r.energy_threshold = 300
         audio = r.listen(source)
 
     try:
-        # speak("hmm")
+        speak("hmm")
         query = r.recognize_google(audio, language='en-in')
-        # print(query)
+        print(query)
     except Exception as e:
         i = random.randint(1,2)
         if i == 1:
