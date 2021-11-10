@@ -6,7 +6,7 @@ import datetime,random
 import pyttsx3
 import wikipedia
 from PlayYoutubevideos import playOnYoutube
-import whatsapp as kit
+import pywhatkit as kit
 from Gideon import *
 
 engine = pyttsx3.init('sapi5')
@@ -85,12 +85,13 @@ def CommandActive(event):
                 speak("Who do you want to send the message to?")
                 receiver=listen()
             speak("What would you like to send to "+receiver)
-            m=listen()
+            # m=listen()
+            m="hello"
             print(m)
             kit.sendwhatmsg("+919618152076",m,datetime.datetime.now().hour,datetime.datetime.now().minute+1)
 
         except:
-            speak("I'm sorry, I didn't get you")
+            speak("I'm sorry, I didn't get you bro")
 
     elif 'open word' in query:
         try:
@@ -116,6 +117,14 @@ def CommandActive(event):
         except Exception as e:
             print(e)
             speak("There has been an error")
+    elif 'open chrome' in query:
+        try:
+            os.startfile('chrome')
+        except Exception as e:
+            print(e)
+            speak("There has been an error")
+            
+            
 
     
             
@@ -124,7 +133,7 @@ def CommandActive(event):
 
 
 
-# while True:
-#     command = listen()
-#     if "gideon" in command:
-#         CommandActive()
+while True:
+    command = listen()
+    if "gideon" in command:
+        CommandActive()
