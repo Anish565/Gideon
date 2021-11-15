@@ -22,11 +22,11 @@ engine.setProperty('rate',150)
 # speak("Hello There")
 # wishMe()
 # while True:
-def CommandActive():
-# def CommandActive(event):
-    # query = listen().lower()
+# def CommandActive():
+def CommandActive(event):
+    query = listen().lower()
     # query="send a message on whatsapp to Charan"
-    query="can you please open valorant"
+    # query="can you please open valorant"
     print(query)
     if 'wikipedia' in query:
         speak("Searching Wikipedia")
@@ -52,6 +52,8 @@ def CommandActive():
         else:
             webbrowser.open("https://www.youtube.com/results?search_query="+query)
     elif 'youtube' in query:
+        if 'on' in query:
+            query = query.replace("on","")
         query = query.replace(" youtube","")
         if query == "":
             webbrowser.open("youtube.com")
@@ -130,4 +132,4 @@ def CommandActive():
 #     # command = listen()
 #     command="gideon"
 #     if "gideon" in command:
-CommandActive()
+# CommandActive()
