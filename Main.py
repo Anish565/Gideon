@@ -30,11 +30,6 @@ def CommandActive():
     query = listen().lower()
     # query="send a message on whatsapp to Charan"
     # query="can you please open valorant"
-<<<<<<< HEAD
-    # query='what is the date today'
-    query='what is the weather in hyderabad today'
-=======
->>>>>>> 95053a06b7fff0a7acd5c765e3e6d2cf835a69f7
     print(query)
     if 'wikipedia' in query:
         speak("Searching Wikipedia")
@@ -129,7 +124,6 @@ def CommandActive():
         except Exception as e:
             print(e)
             speak("I'm sorry, fuck you")
-<<<<<<< HEAD
     
     elif 'the date' in query:
         try:
@@ -165,9 +159,6 @@ def CommandActive():
         except Exception as e:
             print(e)
             speak("There has been an error")    
-=======
-
->>>>>>> 95053a06b7fff0a7acd5c765e3e6d2cf835a69f7
     else:
         speak("I'm not capable of doing that yet")
         print("I'm not capable of doing that yet")
@@ -177,11 +168,7 @@ def CommandActive():
 #     # command = listen()
 #     command="gideon"
 #     if "gideon" in command:
-<<<<<<< HEAD
 CommandActive()
 
 
 
-=======
-# CommandActive()
->>>>>>> 95053a06b7fff0a7acd5c765e3e6d2cf835a69f7
