@@ -25,8 +25,8 @@ engine.setProperty('rate',150)
 def CommandActive():
 # def CommandActive(event):
     # query = listen().lower()
-    # query="send a message on whatsapp to Charan"
-    query="can you please open valorant"
+    query="send a message on whatsapp to Charan"
+    # query="can yo"
     print(query)
     if 'wikipedia' in query:
         speak("Searching Wikipedia")
@@ -78,22 +78,23 @@ def CommandActive():
             print(e)
             speak("There has been an error.")
     elif 'whatsapp' in query:
-        try:
+        # try:
+            
             query=query.split(" ")
             if 'to' in query:
                 receiver=query[query.index('to')+1]
-                speak(receiver)
+                # speak(receiver)
             else:
                 speak("Who do you want to send the message to?")
                 receiver=listen()
             speak("What would you like to send to "+receiver)
             # m=listen()
-            m="hello"
+            m="why doesn't this shit work"
             print(m)
             kit.sendwhatmsg("+919618152076",m,datetime.datetime.now().hour,datetime.datetime.now().minute+1)
 
-        except:
-            speak("I'm sorry, I didn't get you bro")
+        # except:
+            # speak("I'm sorry, I didn't get you bro")
 
     elif 'open word' in query:
         try:
