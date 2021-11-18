@@ -8,6 +8,9 @@ import wikipedia
 from PlayYoutubevideos import playOnYoutube
 import pywhatkit as kit
 from Gideon import *
+from datetime import date
+import Weather as Wr
+import ctypes
 
 engine = pyttsx3.init('sapi5')
 
@@ -22,19 +25,13 @@ engine.setProperty('rate',150)
 # speak("Hello There")
 # wishMe()
 # while True:
-<<<<<<< HEAD
-def CommandActive():
-# def CommandActive(event):
-    # query = listen().lower()
-    query="send a message on whatsapp to Charan"
-    # query="can yo"
-=======
 # def CommandActive():
-def CommandActive(event):
+def CommandActive():
     query = listen().lower()
     # query="send a message on whatsapp to Charan"
     # query="can you please open valorant"
->>>>>>> 9819b3595addd659d8c79ba118bffd17da38b464
+    # query='what is the date today'
+    query='what is the weather in hyderabad today'
     print(query)
     if 'wikipedia' in query:
         speak("Searching Wikipedia")
@@ -126,8 +123,41 @@ def CommandActive(event):
         except Exception as e:
             print(e)
             speak("I'm sorry, fuck you")
-            
-
+    
+    elif 'the date' in query:
+        try:
+            today = date.today()
+            speak(today)
+        except Exception as e:
+            print(e)
+            speak("There has been an error")
+    elif 'weather in' in query:
+        try:
+            temp=query.split()
+            c=temp[temp.index("weather")+2]
+            w=Wr.find_weather(c)
+            speak(w)
+        except Exception as e:
+            print(e)
+            speak("There has been an error")    
+    elif 'shutdown system' in query:
+        try:
+            os.system("shutdown /s /t 1")
+        except Exception as e:
+            print(e)
+            speak("There has been an error")
+    elif 'restart system' in query:
+        try:
+            os.system("shutdown /r /t 1")
+        except Exception as e:
+            print(e)
+            speak("There has been an error")    
+    elif 'lock system':
+        try:
+            ctypes.windll.user32.LockWorkStation()
+        except Exception as e:
+            print(e)
+            speak("There has been an error")    
     else:
         speak("I'm not capable of doing that yet")
         print("I'm not capable of doing that yet")
@@ -141,4 +171,7 @@ def CommandActive(event):
 #     # command = listen()
 #     command="gideon"
 #     if "gideon" in command:
-# CommandActive()
+CommandActive()
+
+
+
