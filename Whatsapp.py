@@ -21,5 +21,3 @@ def sendMessage(name, message):
         time.sleep(2)
     except Exception as e:
         print(e)
-
-
