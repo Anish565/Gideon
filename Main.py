@@ -22,11 +22,19 @@ engine.setProperty('rate', 150)
 # speak("Hello There")
 # wishMe()
 # while True:
+<<<<<<< HEAD
+def CommandActive():
+# def CommandActive(event):
+    # query = listen().lower()
+    query="send a message on whatsapp to Charan"
+    # query="can yo"
+=======
 # def CommandActive():
 def CommandActive(event):
     query = listen().lower()
     # query="send a message on whatsapp to Charan"
     # query="can you please open valorant"
+>>>>>>> 9819b3595addd659d8c79ba118bffd17da38b464
     print(query)
     if 'wikipedia' in query:
         speak("Searching Wikipedia")
@@ -82,23 +90,36 @@ def CommandActive(event):
             print(e)
             speak("There has been an error.")
     elif 'whatsapp' in query:
+<<<<<<< HEAD
         try:
             query = query.split(" ")
             if 'to' in query:
                 receiver = query[query.index('to')+1]
                 speak(receiver)
+=======
+        # try:
+            
+            query=query.split(" ")
+            if 'to' in query:
+                receiver=query[query.index('to')+1]
+                # speak(receiver)
+>>>>>>> 37cfa0576ae1caf8d8262d24dcac78b32667e408
             else:
                 speak("Who do you want to send the message to?")
                 receiver = listen()
             speak("What would you like to send to "+receiver)
             # m=listen()
+<<<<<<< HEAD
             m = "hello"
+=======
+            m="why doesn't this shit work"
+>>>>>>> 37cfa0576ae1caf8d8262d24dcac78b32667e408
             print(m)
             kit.sendwhatmsg(
                 "+919618152076", m, datetime.datetime.now().hour, datetime.datetime.now().minute+1)
 
-        except:
-            speak("I'm sorry, I didn't get you bro")
+        # except:
+            # speak("I'm sorry, I didn't get you bro")
 
     elif 'open word' in query:
         try:
