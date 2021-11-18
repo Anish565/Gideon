@@ -1,3 +1,9 @@
 {
+<<<<<<< HEAD
     "cmake.configureOnOpen": true
+=======
+    "python.analysis.extraPaths": [
+        "./acrcloud_sdk_python/mac/x86-64/python3"
+    ]
+>>>>>>> 9819b3595addd659d8c79ba118bffd17da38b464
 }
