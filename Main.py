@@ -12,6 +12,8 @@ from Gideon import *
 from datetime import date
 import Weather as Wr
 import ctypes
+import translate as t
+
 
 engine = pyttsx3.init('sapi5')
 
@@ -28,8 +30,9 @@ engine.setProperty('rate', 150)
 def CommandActive():
 # def CommandActive(event):
     # query = listen().lower()
-    query="send a message on whatsapp to Charan"
+    # query="send a message on whatsapp to Charan"
     # query="can yo"
+    query="translate"
     print(query)
     if 'wikipedia' in query:
         speak("Searching Wikipedia")
@@ -153,12 +156,23 @@ def CommandActive():
         except Exception as e:
             print(e)
             speak("There has been an error")    
-    elif 'lock system':
+    elif 'lock system' in query:
         try:
             ctypes.windll.user32.LockWorkStation()
         except Exception as e:
             print(e)
             speak("There has been an error")    
+    
+    elif 'translate' in query:
+        try:
+            speak("Please enter the text you would like to translate")
+            te=input()
+            tt=t.trans(te)
+            speak("The translated text is")
+            speak(tt)
+        except Exception as e:
+            print(e)
+            speak("There has been an error")
     else:
         speak("I'm not capable of doing that yet")
         print("I'm not capable of doing that yet")
