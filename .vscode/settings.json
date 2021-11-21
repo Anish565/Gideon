@@ -1,5 +1,6 @@
 {
     "python.analysis.extraPaths": [
         "./acrcloud_sdk_python/mac/x86-64/python3"
-    ]
+    ],
+    "cmake.configureOnOpen": false
 }

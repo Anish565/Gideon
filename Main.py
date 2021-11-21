@@ -182,7 +182,8 @@ def CommandActive():
 #     # command = listen()
 #     command="gideon"
 #     if "gideon" in command:
-CommandActive()
+# CommandActive()
+
 
 
 

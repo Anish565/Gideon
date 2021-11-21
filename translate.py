@@ -7,3 +7,6 @@ def trans(t):
 # print(f"{translation.origin} ({translation.src}) --> {translation.text} ({translation.dest})")
 # print(translation.text)
     return translation.text
+
+
+
