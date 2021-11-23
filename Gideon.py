@@ -33,7 +33,7 @@ def listen():
         audio = r.listen(source)
 
     try:
-        speak("hmm")
+        # speak("hmm")
         query = r.recognize_google(audio)
         print(query)
     except Exception as e:
