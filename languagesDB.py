@@ -41,7 +41,8 @@ def retrieveCode(conn, lang):
 
     rows = cur.fetchall()
     for row in rows:
-        print(row[2])
+        # print(row[2])
+        return row[2]
 
 
 # database = "/Users/pran/Desktop/Contacts.db"
@@ -66,3 +67,8 @@ retrieveCode(conn,"spanish")
 #         create_code(conn,language)
         # print(key,value)
 # print(len(languagesDict))
+<<<<<<< HEAD
+=======
+
+# retrieveCode(conn,"spanish")
+>>>>>>> c91e00df56e8f1b88ccceb286493a6e671a8f71f

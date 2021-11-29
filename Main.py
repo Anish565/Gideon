@@ -12,7 +12,11 @@ from Gideon import *
 from datetime import date
 import Weather as Wr
 import ctypes
+from Whatsapp import sendMessage
+from languagesDB import retrieveCode
 import translate as t
+from languagesDB import retrieveCode,conn
+from translate import trans
 
 
 engine = pyttsx3.init('sapi5')
@@ -27,11 +31,12 @@ engine.setProperty('rate', 150)
 # speak("Hello There")
 # wishMe()
 # while True:
+contacts={'afrah':'Afraaaaaaaahhhhhh','ananya':'Ananyaaaaaaaaa','charan':'Charan','anish':'Anish','surya':'Surya','anant':'Anant'}
 def CommandActive():
     speak("Hello")
 # def CommandActive(event):
     query = listen().lower()
-    # query="send a message on whatsapp to Charan"
+    # query="send a message on whatsapp to "
     # query="can yo"
     # query="translate"
     print(query)
@@ -93,18 +98,16 @@ def CommandActive():
 
         query = query.split(" ")
         if 'to' in query:
-            receiver = query[query.index('to')+1]
+            receiver = query[query.index('to')+1].lower()
             # speak(receiver)
         else:
             speak("Who do you want to send the message to?")
-            receiver = listen()
+            receiver = listen().lower()
         speak("What would you like to send to "+receiver)
-        # m=listen()
-        m = "why doesn't this shit work"
-        print(m)
-        kit.sendwhatmsg(
-            "+919618152076", m, datetime.datetime.now().hour, datetime.datetime.now().minute+1)
-
+        m=listen()
+        
+        name=contacts[receiver]
+        sendMessage(name,message=m)
         # except:
         # speak("I'm sorry, I didn't get you bro")
 
@@ -166,14 +169,38 @@ def CommandActive():
     
     elif 'translate' in query:
         try:
-            speak("Please enter the text you would like to translate")
-            te=input()
-            tt=t.trans(te)
+            speak("Please speak the text you would like to translate")
+            te=listen()
+            # tt=t.trans(te)
+            speak("What language do you want to translate it to?")
+            lsp=listen().lower()
+            lsp=retrieveCode(conn=conn,lang=lsp)
             speak("The translated text is")
-            speak(tt)
+            trans(t=te,frm=None,to=lsp)
+            # speak(tt)
         except Exception as e:
             print(e)
             speak("There has been an error")
+    
+    elif 'random agent' in query:
+        speak(valorant())
+
+    elif 'roll a dice' in query:
+        speak(dice())
+
+    elif 'number between' in query:
+        speak("Please mention the range of the numbers")
+        ##nu = listen()
+        nu = "1 and 20"
+        randnum = number_selector(nu)
+        speak(randnum)
+
+    elif 'guns' in query:
+        speak(guns())
+
+    elif 'play a game' in query:
+        speak("Lets play a game of Tic Tac Toe. Beat me if you can!")
+    
     else:
         speak("I'm not capable of doing that yet")
         print("I'm not capable of doing that yet")
@@ -183,7 +210,7 @@ def CommandActive():
 #     # command = listen()
 #     command="gideon"
 #     if "gideon" in command:
-# CommandActive()
+CommandActive()
 
 
 

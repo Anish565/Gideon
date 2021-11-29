@@ -2,14 +2,15 @@ from gtts import gTTS
 import os
 import multiprocessing, time
 from playsound import playsound
-from pygame import mixer
+# from pygame import mixer
 from threading import Thread
 def langOutput(text, lang):
-    text = "yo tiene un fiesta que esta muy divertido"
+    # text = "yo tiene un fiesta que esta muy divertido"
 
-    lang = "es"
+    # lang = "es"
     myobj = gTTS(text,lang=lang,slow=True)
     myobj.save("sampleAudio.mp3")
+<<<<<<< HEAD
     os.system("mp3 sampleAudio.mp3")
     # playsound.playsound('sampleAudio.mp3',False)
     # pygame.mixer.init()
@@ -22,9 +23,10 @@ def langOutput(text, lang):
     # mixer.music.play()
     # p = multiprocessing.Process(target=playsound,args="sampleAudio.mp3")
     # p.start()
+=======
+    os.system("start sampleAudio.mp3")
+>>>>>>> c91e00df56e8f1b88ccceb286493a6e671a8f71f
     
-    # p.terminate()
-    # Thread(target=reproduce_and_kill)
 
-langOutput(None,None)
+# langOutput(None,None)
 
