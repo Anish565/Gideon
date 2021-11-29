@@ -37,7 +37,7 @@ def retrieveCode(conn, lang):
     cur = conn.cursor()
     sql = "SELECT * FROM languages WHERE lang = ?"
     name = (lang,)
-    cur.execute(sql,lang)
+    cur.execute(sql,name)
 
     rows = cur.fetchall()
     for row in rows:
@@ -45,7 +45,7 @@ def retrieveCode(conn, lang):
 
 
 # database = "/Users/pran/Desktop/Contacts.db"
-database = "C:\\Users\\Anisn\\Desktop\\codes\\Gideon\\languages.db"
+database = "languages.db"
 sql_create_table = """CREATE TABLE IF NOT EXISTS languages(
             id INTEGER PRIMARY KEY,
             lang text NOT NULL UNIQUE,
@@ -58,6 +58,8 @@ if conn is not None:
     create_table(conn, sql_create_table)
 else:
     print("Cannot Establish Connection.")
+
+retrieveCode(conn,"spanish")
 
 # for key,value in languagesDict.items():
 #         language = (value,key)

@@ -28,11 +28,12 @@ engine.setProperty('rate', 150)
 # wishMe()
 # while True:
 def CommandActive():
+    speak("Hello")
 # def CommandActive(event):
-    # query = listen().lower()
+    query = listen().lower()
     # query="send a message on whatsapp to Charan"
     # query="can yo"
-    query="translate"
+    # query="translate"
     print(query)
     if 'wikipedia' in query:
         speak("Searching Wikipedia")

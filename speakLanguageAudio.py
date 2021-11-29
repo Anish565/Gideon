@@ -10,6 +10,7 @@ def langOutput(text, lang):
     lang = "es"
     myobj = gTTS(text,lang=lang,slow=True)
     myobj.save("sampleAudio.mp3")
+    os.system("mp3 sampleAudio.mp3")
     # playsound.playsound('sampleAudio.mp3',False)
     # pygame.mixer.init()
     # pygame.mixer.music.load('sampleAudio.mp3')

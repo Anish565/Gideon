@@ -5,7 +5,7 @@ options = webdriver.ChromeOptions()
 
 try:
     options.add_argument('--user-data-dir=C:\\Users\\Anisn\\AppData\\Local\\Google\\Chrome\\User Data')
-
+    # options.set_headless(True)    
     options.add_argument('--profile-directory=Default')
     # options.headless = True
 except Exception as e:
