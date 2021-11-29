@@ -14,10 +14,11 @@ import Weather as Wr
 import ctypes
 from Whatsapp import sendMessage
 from languagesDB import retrieveCode
+from system_calls import *
 import translate as t
 from languagesDB import retrieveCode,conn
 from translate import trans
-
+from random_selector import *
 
 engine = pyttsx3.init('sapi5')
 
@@ -36,6 +37,7 @@ def CommandActive():
     speak("Hello")
 # def CommandActive(event):
     query = listen().lower()
+    # query = "play Tic Tac Toe"
     # query="send a message on whatsapp to "
     # query="can yo"
     # query="translate"
@@ -48,8 +50,20 @@ def CommandActive():
         speak("According to wikipedia")
         speak(results)
         speak("Hope that helped")
+    
+    elif 'play' == query or 'pause' == query:
+        playPause()
+    elif 'esc' == query:
+        escape()
+    elif 'next' == query:
+        nextTrack()
+    elif 'prev' == query:
+        prevTrack()
     elif 'play' in query:
-        if 'music' in query:
+        if 'Tic Tac Toe' in query:
+            os.system("python tictac.py")
+        
+        elif 'music' in query:
             music_dir = "path"
             songs = os.listdir(music_dir)
             print(songs)
@@ -130,7 +144,7 @@ def CommandActive():
             os.startfile(temp[temp.index("open")+1])
         except Exception as e:
             print(e)
-            speak("I'm sorry, fuck you")
+            speak("I'm sorry, i didn't quite get that")
     
     elif 'the date' in query:
         try:
@@ -182,25 +196,42 @@ def CommandActive():
             print(e)
             speak("There has been an error")
     
-    elif 'random agent' in query:
-        speak(valorant())
-
+    elif 'random' in query:
+        if 'agent' in query:
+            speak(valorant())
+        elif 'number between' in query:
+            speak("Please mention the range of the numbers")
+            ##nu = listen()
+            nu = "1 and 20"
+            randnum = number_selector(nu)
+            speak(randnum)
+        elif 'guns' in query:
+            speak(guns())
+    
     elif 'roll a dice' in query:
         speak(dice())
 
-    elif 'number between' in query:
-        speak("Please mention the range of the numbers")
-        ##nu = listen()
-        nu = "1 and 20"
-        randnum = number_selector(nu)
-        speak(randnum)
-
-    elif 'guns' in query:
-        speak(guns())
-
-    elif 'play a game' in query:
-        speak("Lets play a game of Tic Tac Toe. Beat me if you can!")
     
+
+    
+    elif 'volume' in query:
+        if 'increase' in query:
+            volumeUp()
+        elif 'decrease' in query:
+            volumeDown()
+    elif 'mute' in query:
+        volumeMute()
+    
+    elif 'change' in query:
+        if 'window' in query:
+            windowchange()
+        elif 'desktop' in query:
+            if 'left' in query:
+                desktopchangeLeft()
+            elif 'right' in query:
+                desktopchangeRight()
+    
+
     else:
         speak("I'm not capable of doing that yet")
         print("I'm not capable of doing that yet")

@@ -26,7 +26,7 @@ def listen():
     r = s.Recognizer()
     with s.Microphone() as source:
         # speak("I'm Listening")
-        # print("Listening...")
+        print("Listening...")
         # r.phrase_threshold = 0.15
         # r.pause_threshold = 0.75
         # r.energy_threshold = 300
@@ -70,3 +70,5 @@ def wishMe():
     else:
         speak("Good Night")
 
+
+# listen()

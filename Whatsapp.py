@@ -4,13 +4,10 @@ import time
 options = webdriver.ChromeOptions()
 
 try:
-<<<<<<< HEAD
-    options.add_argument('--user-data-dir=C:\\Users\\Anisn\\AppData\\Local\\Google\\Chrome\\User Data')
+    # options.add_argument('--user-data-dir=C:\\Users\\Anisn\\AppData\\Local\\Google\\Chrome\\User Data')
     # options.set_headless(True)    
-=======
     options.add_argument('--user-data-dir=C:\\Users\\moham\\AppData\\Local\\Google\\Chrome\\User Data')
 
->>>>>>> c91e00df56e8f1b88ccceb286493a6e671a8f71f
     options.add_argument('--profile-directory=Default')
 
 except Exception as e:
