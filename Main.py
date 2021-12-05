@@ -35,6 +35,7 @@ engine.setProperty('rate', 150)
 # while True:
 contacts={'afrah':'Afraaaaaaaahhhhhh','ananya':'Ananyaaaaaaaaa','charan':'Charan','anish':'Anish','surya':'Surya','anant':'Anant'}
 def CommandActive():
+    speak("Hello")
 # def CommandActive(event):
     query = listen().lower()
     # query="send a message on whatsapp to "

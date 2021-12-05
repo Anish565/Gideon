@@ -25,11 +25,11 @@ def speak(audio):
 def listen():
     r = s.Recognizer()
     with s.Microphone() as source:
-        speak("I'm Listening")
+        # speak("I'm Listening")
         # print("Listening...")
         # r.phrase_threshold = 0.15
-        r.pause_threshold = 0.75
-        r.energy_threshold = 300
+        # r.pause_threshold = 0.75
+        # r.energy_threshold = 300
         audio = r.listen(source)
 
     try:
@@ -38,12 +38,12 @@ def listen():
         print(query)
     except Exception as e:
         i = random.randint(1,2)
-        if i == 1:
-            speak("I am sorry. I didn't get that")
-        elif i == 2:
-            speak("Could you repeat that please.")
+        # if i == 1:
+        #     speak("I am sorry. I didn't get that")
+        # elif i == 2:
+        #     speak("Could you repeat that please.")
         return "None"
-    return query        
+    return query.lower()     
 
 
 

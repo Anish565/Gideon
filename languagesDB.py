@@ -60,10 +60,15 @@ if conn is not None:
 else:
     print("Cannot Establish Connection.")
 
+retrieveCode(conn,"spanish")
+
 # for key,value in languagesDict.items():
 #         language = (value,key)
 #         create_code(conn,language)
         # print(key,value)
 # print(len(languagesDict))
+<<<<<<< HEAD
+=======
 
 # retrieveCode(conn,"spanish")
+>>>>>>> c91e00df56e8f1b88ccceb286493a6e671a8f71f
