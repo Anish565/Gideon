@@ -17,6 +17,8 @@ from languagesDB import retrieveCode
 import translate as t
 from languagesDB import retrieveCode,conn
 from translate import trans
+from random_selector import *
+
 
 
 engine = pyttsx3.init('sapi5')
