@@ -1,6 +1,6 @@
 import pygame
 from pygame.locals import *
-
+from Gideon import *
 
 BOARDWIDTH = 3
 BOARDHEIGHT = 3
@@ -270,10 +270,13 @@ def main():
 
             if result == PLAYER_X:
                 msg = "X wins!"
+                speak("X wins")
             elif result == PLAYER_O:
                 msg = "O wins!"
+                speak("O wins")
             elif result == DRAW_GAME:
                 msg = "Draw game"
+                speak("Draw")
 
             drawBoard(board, msg)
             pygame.display.update()

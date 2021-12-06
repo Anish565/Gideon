@@ -37,7 +37,7 @@ def CommandActive():
     speak("Hello")
 # def CommandActive(event):
     query = listen().lower()
-    # query = "play Tic Tac Toe"
+    # query = "play tic tac toe"
     # query="send a message on whatsapp to "
     # query="can yo"
     # query="translate"
@@ -60,8 +60,9 @@ def CommandActive():
     elif 'prev' == query:
         prevTrack()
     elif 'play' in query:
-        if 'Tic Tac Toe' in query:
-            os.system("python tictac.py")
+        if 'tic tac toe' in query:
+            os.system("start cmd /c python tictac.py")
+
         
         elif 'music' in query:
             music_dir = "path"
@@ -215,21 +216,36 @@ def CommandActive():
 
     
     elif 'volume' in query:
+        try : 
+            if "by" in query:
+                    query = query.split()
+                    count = int(query[query.index("by")+1])
+            else:
+                count = 1
+        except:
+            speak("Not sure by how much")
+            count = 1
+
         if 'increase' in query:
-            volumeUp()
-        elif 'decrease' in query:
-            volumeDown()
-    elif 'mute' in query:
+            for i in range(count):
+                volumeUp()
+
+        elif 'decrease' in query or 'reduce' in query:
+            for i in range(count):
+                volumeDown()
+    elif 'mute' == query:
         volumeMute()
     
     elif 'change' in query:
-        if 'window' in query:
+        if 'window' in query or 'tab' in query:
             windowchange()
         elif 'desktop' in query:
             if 'left' in query:
                 desktopchangeLeft()
             elif 'right' in query:
                 desktopchangeRight()
+        # elif 'tab' in query:
+        #     windowchange()
     
 
     else:
@@ -241,7 +257,7 @@ def CommandActive():
 #     # command = listen()
 #     command="gideon"
 #     if "gideon" in command:
-CommandActive()
+# CommandActive()
 
 
 
