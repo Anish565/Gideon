@@ -1,0 +1,1 @@
+python C:\Users\Anisn\Desktop\codes\Gideon\voice_trigger.py

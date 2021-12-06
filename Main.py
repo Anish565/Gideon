@@ -36,7 +36,8 @@ engine.setProperty('rate', 150)
 # while True:
 contacts={'afrah':'Afraaaaaaaahhhhhh','ananya':'Ananyaaaaaaaaa','charan':'Charan','anish':'Anish','surya':'Surya','anant':'Anant'}
 def CommandActive():
-    speak("Hello")
+    
+    # speak("Hello")
 # def CommandActive(event):
     query = listen().lower()
     # query = "play tic tac toe"
@@ -177,7 +178,7 @@ def CommandActive():
         except Exception as e:
             print(e)
             speak("There has been an error")    
-    elif 'lock system' in query:
+    elif 'lock the system' in query:
         try:
             ctypes.windll.user32.LockWorkStation()
         except Exception as e:
@@ -251,8 +252,9 @@ def CommandActive():
     
 
     else:
-        speak("I'm not capable of doing that yet")
-        print("I'm not capable of doing that yet")
+        speak("I didn't get you? could you repeat that")
+        CommandActive()
+        # print("I'm not capable of doing that yet")
 
 
 # while True:
