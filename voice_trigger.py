@@ -3,8 +3,8 @@ from Gideon import listen, speak
 from Main import CommandActive
 
 
-TRIGGER_WORD = "gideon"
-# TRIGGER_WORD = "jarvis"
+TRIGGER_WORD = "hey raju"
+
 
 while True:
     text = listen().lower()

@@ -97,9 +97,13 @@ def CommandActive():
 
     elif 'time' in query:
         nowTime = datetime.datetime.now().strftime("%H:%M%p")
-        speak(f"The time is {nowTime}")
+        nowTime=nowTime.split(':')
+        nowTime[1]=nowTime[1].split()
+        hr=str(int(nowTime[0])%12)
+        mi=nowTime[1][0]
+        speak(f"The time is {hr} {mi}")
     elif 'open code' in query:
-        codepath = "C:\\Users\\Anisn\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Visual Studio Code\\Visual Studio Code.lnk"
+        codepath = "C:\\Users\\moham\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Visual Studio Code\\Visual Studio Code.lnk"
         os.startfile(codepath)
     elif 'send email' in query:
         try:
@@ -121,6 +125,7 @@ def CommandActive():
         else:
             speak("Who do you want to send the message to?")
             receiver = listen().lower()
+            
         speak("What would you like to send to "+receiver)
         m=listen()
         
@@ -162,7 +167,7 @@ def CommandActive():
             temp=query.split()
             c=temp[temp.index("weather")+2]
             w=Wr.find_weather(c)
-            speak(w)
+            speak("The weather in {0} is {1}".format(c,w))
         except Exception as e:
             print(e)
             speak("There has been an error")    
@@ -203,6 +208,10 @@ def CommandActive():
     elif 'random' in query:
         if 'agent' in query:
             speak(valorant())
+        elif 'number' in query:
+            if 'between' not in query:
+                speak(random.randint(1,100))
+            
         elif 'number between' in query:
             speak("Please mention the range of the numbers")
             ##nu = listen()
@@ -249,7 +258,8 @@ def CommandActive():
                 desktopchangeRight()
         # elif 'tab' in query:
         #     windowchange()
-    
+    elif 'nothing' in query:
+        return
 
     else:
         speak("I didn't get you? could you repeat that")

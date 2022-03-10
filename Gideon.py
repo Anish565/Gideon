@@ -35,7 +35,7 @@ def listen():
     try:
         # speak("hmm")
         query = r.recognize_google(audio)
-        print(query)
+        # print(query)
     except Exception as e:
         i = random.randint(1,2)
         # if i == 1:

@@ -1,1 +1,1 @@
-python C:\Users\Anisn\Desktop\codes\Gideon\voice_trigger.py
+python C:\Users\moham\Desktop\Gideon\voice_trigger.py

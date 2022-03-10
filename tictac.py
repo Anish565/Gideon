@@ -212,13 +212,13 @@ def main():
     pygame.display.set_caption('TicTac')
     BASICFONT = pygame.font.Font('freesansbold.ttf', BASICFONTSIZE)
     NEW_SURF, NEW_RECT = makeText(
-        'vs Gideon', TEXTCOLOR, TILECOLOR, WINDOWWIDTH - 120, WINDOWHEIGHT - 60)
+        'vs AI', TEXTCOLOR, TILECOLOR, WINDOWWIDTH - 120, WINDOWHEIGHT - 60)
     NEW_SURF2, NEW_RECT2 = makeText(
         'vs a friend!', TEXTCOLOR, TILECOLOR, WINDOWWIDTH - 240, WINDOWHEIGHT - 60)
     board = [BLANK] * 9
     game_over = False
     x_turn = True
-    msg = "Try to beat Gideon!"
+    msg = "Try to beat AI"
     drawBoard(board, msg)
     pygame.display.update()
     running = True
@@ -234,14 +234,14 @@ def main():
                 if not coords and NEW_RECT.collidepoint(event.pos):
                     board = [BLANK] * 9
                     game_over = False
-                    msg = "Try to beat Gideon!"
+                    msg = "Try to beat AI"
                     drawBoard(board, msg)
                     pygame.display.update()
                     two_player = False
                 if not coords and NEW_RECT2.collidepoint(event.pos):
                     board = [BLANK] * 9
                     game_over = False
-                    msg = "Try to beat Gideon!"
+                    msg = "Try to beat AI"
                     drawBoard(board, msg)
                     pygame.display.update()
                     two_player = True

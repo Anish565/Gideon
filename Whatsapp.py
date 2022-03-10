@@ -42,6 +42,6 @@ def sendMessage(name, message):
     driver.__exit__()
     
 
-# sendMessage(name,message=message)
+# sendMessage('Charan',message='Hello')
 
 
